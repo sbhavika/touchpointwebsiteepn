@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPN Consulting — For Policymakers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #05103A;
+    --blue: #0A2272;
+    --mid-blue: #1A3E8F;
+    --accent: #2B5FD9;
+    --light-blue: #A8C0EE;
+    --pale: #E8EEF8;
+    --white: #FFFFFF;
+    --off-white: #F5F7FC;
+    --gold: #C8960C;
+    --gold-light: #F5E6B8;
+    --text-dark: #1A1F3A;
+    --text-mid: #4A5270;
+    --text-light: #8892B0;
+    --border: #DDE3F0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV (matching EPN brand) ── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(5,16,58,0.08);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-icon::before {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 3px solid white;
+    border-radius: 50%;
+    border-right-color: transparent;
+    transform: rotate(-30deg);
+  }
+
+  .logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #E03030;
+    border-radius: 50%;
+    border-left-color: transparent;
+    transform: rotate(30deg);
+  }
+
+  .logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-links .active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .nav-cta {
+    background: var(--navy);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 48px 0;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(43,95,217,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,150,12,0.15);
+    border: 1px solid rgba(200,150,12,0.35);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--light-blue);
+  }
+
+  .hero p {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(168,192,238,0.9);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 13px 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: #1A4FD0; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--light-blue);
+    padding: 13px 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(168,192,238,0.35);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover { border-color: var(--light-blue); color: white; }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 0;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .trust-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .trust-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--light-blue);
+    line-height: 1.4;
+    max-width: 80px;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* ── TOPIC SECTION ── */
+  .section {
+    padding: 72px 48px;
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  /* TOPIC CARDS */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .topic-card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .topic-card:last-child { border-right: none; }
+
+  .topic-card.active { background: var(--navy); }
+
+  .topic-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+    transition: filter 0.3s, transform 0.4s;
+  }
+
+  .topic-card:hover .topic-img { filter: brightness(0.7); transform: scale(1.03); }
+  .topic-card.active .topic-img { filter: brightness(0.4); }
+
+  .topic-img-placeholder {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    transition: transform 0.4s;
+  }
+
+  .topic-card:hover .topic-img-placeholder { transform: scale(1.05); }
+
+  .tp1 { background: linear-gradient(135deg, #1a3a6e, #2d5fa3); }
+  .tp2 { background: linear-gradient(135deg, #1a4a2e, #2d7a4f); }
+  .tp3 { background: linear-gradient(135deg, #4a1a1a, #8a3030); }
+  .tp4 { background: linear-gradient(135deg, #2a1a4a, #5a3090); }
+
+  .topic-body {
+    padding: 20px 22px 24px;
+    background: inherit;
+    position: relative;
+  }
+
+  .topic-card.active .topic-body { background: var(--navy); }
+
+  .topic-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    transition: color 0.3s;
+    line-height: 1.3;
+  }
+
+  .topic-card.active .topic-name { color: var(--white); }
+  .topic-card:hover .topic-name { color: var(--accent); }
+  .topic-card.active:hover .topic-name { color: var(--light-blue); }
+
+  .topic-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.5;
+    margin-bottom: 14px;
+    transition: color 0.3s;
+  }
+
+  .topic-card.active .topic-desc { color: rgba(168,192,238,0.75); }
+
+  .topic-more {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .topic-card.active .topic-more { color: var(--gold-light); }
+  .topic-more:hover { gap: 10px; }
+
+  .topic-active-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .topic-card.active .topic-active-bar { opacity: 1; }
+
+  /* TOPIC DETAIL PANEL */
+  .topic-panel {
+    display: none;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 40px 40px;
+    animation: fadeSlide 0.3s ease;
+  }
+
+  .topic-panel.visible { display: block; }
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+
+  .panel-col-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* REGION TABS */
+  .region-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .region-tab {
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-mid);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .region-tab:hover { border-color: var(--accent); color: var(--accent); }
+
+  .region-tab.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+  }
+
+  .region-flag { font-size: 14px; }
+
+  .region-content { display: none; }
+  .region-content.visible { display: block; }
+
+  .briefing-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .briefing-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 12px rgba(43,95,217,0.1);
+    transform: translateX(3px);
+  }
+
+  .briefing-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  .briefing-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .briefing-date {
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  .briefing-new {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--gold);
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+
+  /* CASE STUDIES */
+  .case-item {
+    background: white;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    padding: 16px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+  }
+
+  .case-item:hover {
+    border-color: var(--mid-blue);
+    box-shadow: 0 2px 12px rgba(5,16,58,0.08);
+  }
+
+  .case-location {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .case-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 7px;
+  }
+
+  .case-outcome {
+    font-size: 11px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .case-outcome strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* EXPERTS */
+  .expert-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .expert-item:last-child { border-bottom: none; }
+
+  .expert-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-blue);
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .expert-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .expert-role {
+    font-size: 11px;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .expert-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .expert-tag {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(43,95,217,0.08);
+    border: 1px solid rgba(43,95,217,0.2);
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  /* TRACKING SECTION */
+  .tracking-section {
+    background: var(--navy);
+    padding: 64px 48px;
+  }
+
+  .tracking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .tracking-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .tracking-sub {
+    font-size: 13px;
+    color: var(--light-blue);
+    font-weight: 300;
+    margin-top: 6px;
+  }
+
+  .tracking-live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+  }
+
+  .live-dot {
+    width: 7px;
+    height: 7px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .tracking-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .tracking-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 22px 24px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .tracking-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(168,192,238,0.35);
+    transform: translateY(-2px);
+  }
+
+  .tracking-topic {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tracking-urgency {
+    font-size: 9px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .urgency-high { background: rgba(200,150,12,0.25); color: var(--gold-light); }
+  .urgency-med { background: rgba(43,95,217,0.25); color: var(--light-blue); }
+
+  .tracking-headline {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .tracking-body {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(168,192,238,0.75);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .tracking-meta {
+    font-size: 11px;
+    color: rgba(168,192,238,0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* INSTITUTIONS */
+  .institutions-section {
+    padding: 64px 48px;
+    background: var(--off-white);
+  }
+
+  .institutions-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    flex-wrap: wrap;
+  }
+
+  .institution-item {
+    flex: 1;
+    min-width: 140px;
+    padding: 28px 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .institution-item:last-child { border-right: none; }
+  .institution-item:hover { background: var(--off-white); }
+
+  .inst-abbr {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+
+  .inst-name {
+    font-size: 10px;
+    color: var(--text-light);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* BRIEFING CTA */
+  .briefing-cta {
+    background: linear-gradient(135deg, var(--blue), var(--mid-blue));
+    padding: 64px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--light-blue);
+    line-height: 1.6;
+    max-width: 500px;
+  }
+
+  .cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 300px;
+  }
+
+  .cta-form input, .cta-form select {
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 13px;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .cta-form input::placeholder { color: rgba(255,255,255,0.4); }
+  .cta-form select option { background: var(--navy); color: white; }
+  .cta-form input:focus, .cta-form select:focus { border-color: rgba(168,192,238,0.6); }
+
+  .cta-form button {
+    padding: 13px;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+  }
+
+  .cta-form button:hover { background: #E8B020; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: rgba(168,192,238,0.5);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(168,192,238,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--light-blue); }
+
+  /* Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon"></div>
+    <span class="logo-text">EPN CONSULTING</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Clients</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#" class="active">For Policymakers</a></li>
+    <li><a href="#">News & Events</a></li>
+    <li><a href="#" class="nav-cta">Contact us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Dedicated Policymaker Resource</div>
+    <h1>Policy decisions deserve <em>expert insight</em>, not just information.</h1>
+    <p>EPN Consulting translates complex EU and UK regulatory landscapes into clear, evidence-based intelligence — built for the people who make decisions that matter.</p>
+    <div class="hero-actions">
+      <a href="#topics" class="btn-primary">Explore by Topic</a>
+      <a href="#briefing" class="btn-secondary">Request a Briefing</a>
+    </div>
+  </div>
+  <div class="trust-strip">
+    <div class="trust-item">
+      <div class="trust-num">15+</div>
+      <div class="trust-label">Years EU Policy Experience</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">40+</div>
+      <div class="trust-label">Public Institutions Advised</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">12</div>
+      <div class="trust-label">EU Member States Covered</div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-num">EU+UK</div>
+      <div class="trust-label">Dual Regulatory Expertise</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPIC SECTION -->
+<section class="section" id="topics">
+  <div class="section-header">
+    <div class="section-tag">Explore by Topic</div>
+    <h2 class="section-title">What is your policy focus?</h2>
+    <p class="section-sub">Select your area of work. Inside each topic you'll find region-specific briefings, case studies from comparable institutions, and EPN's forward-looking analysis.</p>
+  </div>
+
+  <div class="topics-grid" id="topicsGrid">
+    <div class="topic-card active" onclick="selectTopic(this, 'transport')">
+      <div class="topic-img-placeholder tp1">🚆</div>
+      <div class="topic-body">
+        <div class="topic-name">Sustainable Transport</div>
+        <div class="topic-desc">Modal shift, SUMP frameworks, zero-emission fleets, urban mobility planning.</div>
+        <a class="topic-more">Explore ›</a>
+        <div class="topic-active-bar"></div>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic(this, 'cities')">
+      <div class="topic-img-placeholder tp2">🏙️</div>
+      <div class="topic-body">
+        <div class="topic-name">Smart Cities</div>
+        <div class="topic-desc">Data governance, digital infrastructure, mobility-as-a-service, urban innovation.</div>
+        <a class="topic-more">Explore ›</a>
+        <div class="topic-active-bar"></div>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic(this, 'climate')">
+      <div class="topic-img-placeholder tp3">🌍</div>
+      <div class="topic-body">
+        <div class="topic-name">Climate Change</div>
+        <div class="topic-desc">Green Deal alignment, net zero pathways, climate resilience, adaptation frameworks.</div>
+        <a class="topic-more">Explore ›</a>
+        <div class="topic-active-bar"></div>
+      </div>
+    </div>
+    <div class="topic-card" onclick="selectTopic(this, 'economy')">
+      <div class="topic-img-placeholder tp4">♻️</div>
+      <div class="topic-body">
+        <div class="topic-name">Circular Economy</div>
+        <div class="topic-desc">Waste reduction policy, supply chain resilience, sustainable procurement, lifecycle assessment.</div>
+        <a class="topic-more">Explore ›</a>
+        <div class="topic-active-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: TRANSPORT -->
+  <div class="topic-panel visible" id="panel-transport">
+    <div class="panel-inner">
+      <!-- COLUMN 1: REGIONAL BRIEFINGS -->
+      <div>
+        <div class="panel-col-title">Regional Briefings</div>
+        <div class="region-tabs">
+          <div class="region-tab active" onclick="selectRegion(this, 'transport', 'eu')"><span class="region-flag">🇪🇺</span> EU</div>
+          <div class="region-tab" onclick="selectRegion(this, 'transport', 'uk')"><span class="region-flag">🇬🇧</span> UK</div>
+          <div class="region-tab" onclick="selectRegion(this, 'transport', 'cross')">⟷ Cross-Border</div>
+        </div>
+
+        <div class="region-content visible" id="transport-eu">
+          <div class="briefing-item">
+            <div class="briefing-new">NEW</div>
+            <div class="briefing-tag">Policy Brief · Feb 2026</div>
+            <div class="briefing-title">TEN-T Revision: What the Updated Core Network Means for Urban Nodes</div>
+            <div class="briefing-date">Updated 18 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Regulatory Preview · Q1 2026</div>
+            <div class="briefing-title">FuelEU Maritime & Land Integration: Preparing Your City's Port Connections</div>
+            <div class="briefing-date">Updated 12 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Framework Guide</div>
+            <div class="briefing-title">SUMP 2.0 Compliance Checklist: 14 Requirements Now Active</div>
+            <div class="briefing-date">Updated 5 Feb 2026</div>
+          </div>
+        </div>
+
+        <div class="region-content" id="transport-uk">
+          <div class="briefing-item">
+            <div class="briefing-new">NEW</div>
+            <div class="briefing-tag">Policy Brief · Feb 2026</div>
+            <div class="briefing-title">Integrated Rail Plan Review: Implications for Regional Transport Authorities</div>
+            <div class="briefing-date">Updated 16 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Comparative Analysis</div>
+            <div class="briefing-title">UK Bus Back Better: 24 Months On — What the Evidence Shows</div>
+            <div class="briefing-date">Updated 9 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Funding Alert</div>
+            <div class="briefing-title">UKSPF Round 3: Transport Eligibility Criteria Decoded</div>
+            <div class="briefing-date">Updated 2 Feb 2026</div>
+          </div>
+        </div>
+
+        <div class="region-content" id="transport-cross">
+          <div class="briefing-item">
+            <div class="briefing-tag">Cross-Border Framework</div>
+            <div class="briefing-title">Post-Brexit Mobility Corridors: Current Status & 2026 Outlook</div>
+            <div class="briefing-date">Updated 14 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Comparative Study</div>
+            <div class="briefing-title">EV Infrastructure: How 8 EU Cities Compare to UK Deployment Rates</div>
+            <div class="briefing-date">Updated 7 Feb 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: CASE STUDIES -->
+      <div>
+        <div class="panel-col-title">Comparable Institution Cases</div>
+        <div class="case-item">
+          <div class="case-location">🇧🇪 Brussels, Belgium</div>
+          <div class="case-title">Good Move Plan: Restructuring a Capital City's Mobility in 36 Months</div>
+          <div class="case-outcome">Challenge: 40% car modal share. Outcome: <strong>17% reduction</strong> in private vehicle trips through zone-based access management.</div>
+        </div>
+        <div class="case-item">
+          <div class="case-location">🇳🇱 Amsterdam, Netherlands</div>
+          <div class="case-title">Zero-Emission Zone Rollout: Logistics Policy That Held Up to Legal Scrutiny</div>
+          <div class="case-outcome">Challenge: Industry opposition. Outcome: <strong>Framework withstood 3 legal challenges</strong>, now EU model case.</div>
+        </div>
+        <div class="case-item">
+          <div class="case-location">🇬🇧 Greater Manchester, UK</div>
+          <div class="case-title">Bee Network Integration: Merging Bus, Rail & Cycling Under One Authority</div>
+          <div class="case-outcome">Challenge: Franchising complexity. Outcome: <strong>First UK city-region</strong> to achieve integrated fares across modes.</div>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: EPN EXPERTS -->
+      <div>
+        <div class="panel-col-title">EPN Experts for This Topic</div>
+        <div class="expert-item">
+          <div class="expert-avatar">SM</div>
+          <div>
+            <div class="expert-name">Stefano Mainero</div>
+            <div class="expert-role">Founder, EPN Consulting — 20 years EU sustainable transport policy</div>
+            <div class="expert-tags">
+              <span class="expert-tag">SUMP</span>
+              <span class="expert-tag">EU Funding</span>
+              <span class="expert-tag">Modal Shift</span>
+            </div>
+          </div>
+        </div>
+        <div class="expert-item">
+          <div class="expert-avatar">AO</div>
+          <div>
+            <div class="expert-name">Anna Olsson</div>
+            <div class="expert-role">Senior Associate — Urban mobility planning, Scandinavia & Benelux</div>
+            <div class="expert-tags">
+              <span class="expert-tag">Urban Nodes</span>
+              <span class="expert-tag">TEN-T</span>
+            </div>
+          </div>
+        </div>
+        <div class="expert-item">
+          <div class="expert-avatar">IS</div>
+          <div>
+            <div class="expert-name">Ian Skinner</div>
+            <div class="expert-role">Associate — UK transport policy, regulatory analysis</div>
+            <div class="expert-tags">
+              <span class="expert-tag">UK Policy</span>
+              <span class="expert-tag">Decarbonisation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANELS for other topics (simplified) -->
+  <div class="topic-panel" id="panel-cities">
+    <div class="panel-inner">
+      <div>
+        <div class="panel-col-title">Regional Briefings</div>
+        <div class="region-tabs">
+          <div class="region-tab active" onclick="selectRegion(this, 'cities', 'eu')"><span class="region-flag">🇪🇺</span> EU</div>
+          <div class="region-tab" onclick="selectRegion(this, 'cities', 'uk')"><span class="region-flag">🇬🇧</span> UK</div>
+        </div>
+        <div class="region-content visible" id="cities-eu">
+          <div class="briefing-item">
+            <div class="briefing-new">NEW</div>
+            <div class="briefing-tag">Policy Brief · Feb 2026</div>
+            <div class="briefing-title">EU Data Act Implementation: What Smart City Platforms Must Do by Q3 2026</div>
+            <div class="briefing-date">Updated 19 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Framework Guide</div>
+            <div class="briefing-title">Net Zero Cities Mission 100: Application Criteria & Lessons from Cohort 1</div>
+            <div class="briefing-date">Updated 10 Feb 2026</div>
+          </div>
+        </div>
+        <div class="region-content" id="cities-uk">
+          <div class="briefing-item">
+            <div class="briefing-tag">Policy Brief · Feb 2026</div>
+            <div class="briefing-title">UK Smart Cities Framework: DCMS Consultation Closes March 2026</div>
+            <div class="briefing-date">Updated 15 Feb 2026</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="panel-col-title">Comparable Institution Cases</div>
+        <div class="case-item">
+          <div class="case-location">🇫🇮 Helsinki, Finland</div>
+          <div class="case-title">MaaS Global Pilot: What the World's First MaaS City Learned</div>
+          <div class="case-outcome">Challenge: Siloed transport operators. Outcome: <strong>Single-app journey completion</strong> across 6 modes within 18 months.</div>
+        </div>
+        <div class="case-item">
+          <div class="case-location">🇪🇸 Barcelona, Spain</div>
+          <div class="case-title">Superblocks & Urban Data: Measuring Quality of Life at District Scale</div>
+          <div class="case-outcome">Challenge: Political resistance to car space reallocation. Outcome: <strong>34% noise reduction</strong> and sustained public approval.</div>
+        </div>
+      </div>
+      <div>
+        <div class="panel-col-title">EPN Experts for This Topic</div>
+        <div class="expert-item">
+          <div class="expert-avatar">TO</div>
+          <div>
+            <div class="expert-name">Thomas Osdoba</div>
+            <div class="expert-role">Associate — Climate-KIC, Net Zero Cities programme lead</div>
+            <div class="expert-tags"><span class="expert-tag">Net Zero Cities</span><span class="expert-tag">MaaS</span></div>
+          </div>
+        </div>
+        <div class="expert-item">
+          <div class="expert-avatar">SM</div>
+          <div>
+            <div class="expert-name">Stefano Mainero</div>
+            <div class="expert-role">Founder — Digital mobility infrastructure, EU innovation funding</div>
+            <div class="expert-tags"><span class="expert-tag">EU Funding</span><span class="expert-tag">Data Governance</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic-panel" id="panel-climate">
+    <div class="panel-inner">
+      <div>
+        <div class="panel-col-title">Regional Briefings</div>
+        <div class="region-tabs">
+          <div class="region-tab active" onclick="selectRegion(this, 'climate', 'eu')"><span class="region-flag">🇪🇺</span> EU</div>
+          <div class="region-tab" onclick="selectRegion(this, 'climate', 'uk')"><span class="region-flag">🇬🇧</span> UK</div>
+        </div>
+        <div class="region-content visible" id="climate-eu">
+          <div class="briefing-item">
+            <div class="briefing-new">NEW</div>
+            <div class="briefing-tag">Regulatory Preview · Q2 2026</div>
+            <div class="briefing-title">European Climate Law Milestone Review: What 55% by 2030 Means for Transport Ministries</div>
+            <div class="briefing-date">Updated 20 Feb 2026</div>
+          </div>
+          <div class="briefing-item">
+            <div class="briefing-tag">Framework Guide</div>
+            <div class="briefing-title">National Energy & Climate Plans: Gaps Identified in 12 Member State Submissions</div>
+            <div class="briefing-date">Updated 11 Feb 2026</div>
+          </div>
+        </div>
+        <div class="region-content" id="climate-uk">
+          <div class="briefing-item">
+            <div class="briefing-tag">Policy Brief</div>
+            <div class="briefing-title">UK Carbon Budget 6: Transport Sector Obligations Now in Force</div>
+            <div class="briefing-date">Updated 13 Feb 2026</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="panel-col-title">Comparable Institution Cases</div>
+        <div class="case-item">
+          <div class="case-location">🇩🇰 Copenhagen, Denmark</div>
+          <div class="case-title">Carbon Neutral Capital Plan: Transport's Role in a Whole-City Commitment</div>
+          <div class="case-outcome">Challenge: Aligning 14 agencies. Outcome: <strong>Carbon neutrality achieved</strong> in municipal operations, 2025.</div>
+        </div>
+      </div>
+      <div>
+        <div class="panel-col-title">EPN Experts for This Topic</div>
+        <div class="expert-item">
+          <div class="expert-avatar">DC</div>
+          <div>
+            <div class="expert-name">Daniel Cohn</div>
+            <div class="expert-role">Associate — MIT Energy Initiative, decarbonisation pathways</div>
+            <div class="expert-tags"><span class="expert-tag">Net Zero</span><span class="expert-tag">Energy Policy</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic-panel" id="panel-economy">
+    <div class="panel-inner">
+      <div>
+        <div class="panel-col-title">Regional Briefings</div>
+        <div class="region-tabs">
+          <div class="region-tab active" onclick="selectRegion(this, 'economy', 'eu')"><span class="region-flag">🇪🇺</span> EU</div>
+          <div class="region-tab" onclick="selectRegion(this, 'economy', 'uk')"><span class="region-flag">🇬🇧</span> UK</div>
+        </div>
+        <div class="region-content visible" id="economy-eu">
+          <div class="briefing-item">
+            <div class="briefing-new">NEW</div>
+            <div class="briefing-tag">Policy Brief · Feb 2026</div>
+            <div class="briefing-title">EU Circular Economy Action Plan Phase 2: Transport Packaging Rules in Force from July</div>
+            <div class="briefing-date">Updated 17 Feb 2026</div>
+          </div>
+        </div>
+        <div class="region-content" id="economy-uk">
+          <div class="briefing-item">
+            <div class="briefing-tag">Regulatory Alert</div>
+            <div class="briefing-title">UK Extended Producer Responsibility: Transport Sector Obligations 2026</div>
+            <div class="briefing-date">Updated 8 Feb 2026</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="panel-col-title">Comparable Institution Cases</div>
+        <div class="case-item">
+          <div class="case-location">🇳🇱 Netherlands</div>
+          <div class="case-title">National Circular Economy Programme: Procurement Policy as the Lever</div>
+          <div class="case-outcome">Challenge: Fragmented supplier base. Outcome: <strong>23% reduction</strong> in virgin material use in public procurement contracts.</div>
+        </div>
+      </div>
+      <div>
+        <div class="panel-col-title">EPN Experts for This Topic</div>
+        <div class="expert-item">
+          <div class="expert-avatar">WW</div>
+          <div>
+            <div class="expert-name">William Woo</div>
+            <div class="expert-role">Associate — CairnPath Advisory, sustainable supply chains</div>
+            <div class="expert-tags"><span class="expert-tag">Procurement</span><span class="expert-tag">Lifecycle Policy</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE TRACKING -->
+<section class="tracking-section">
+  <div class="tracking-header">
+    <div>
+      <div class="section-tag" style="color:var(--light-blue);">Forward Intelligence</div>
+      <div class="tracking-title">What EPN is watching<br>right now</div>
+      <div class="tracking-sub">Developments our team is monitoring — with implications for policymakers across EU and UK.</div>
+    </div>
+    <div class="tracking-live"><div class="live-dot"></div> Updated weekly</div>
+  </div>
+
+  <div class="tracking-grid">
+    <div class="tracking-card">
+      <div class="tracking-topic">Sustainable Transport <span class="tracking-urgency urgency-high">Act by Q2</span></div>
+      <div class="tracking-headline">TEN-T Core Network Deadline: 9 Cities Still at Risk of Non-Compliance</div>
+      <div class="tracking-body">The revised TEN-T regulation requires urban node compliance by December 2026. Our analysis identifies 9 EU cities where current infrastructure plans will not meet the deadline without immediate intervention.</div>
+      <div class="tracking-meta"><span>🇪🇺 EU</span><span>Feb 21, 2026</span></div>
+    </div>
+    <div class="tracking-card">
+      <div class="tracking-topic">Smart Cities <span class="tracking-urgency urgency-med">Monitor Closely</span></div>
+      <div class="tracking-headline">EU AI Act Transport Provisions: First Enforcement Cases Expected H1 2026</div>
+      <div class="tracking-body">Autonomous vehicle data systems and traffic management AI tools now fall under high-risk AI Act classifications. First enforcement actions are expected within 6 months — and most cities are not ready.</div>
+      <div class="tracking-meta"><span>🇪🇺 EU · 🇬🇧 UK</span><span>Feb 19, 2026</span></div>
+    </div>
+    <div class="tracking-card">
+      <div class="tracking-topic">Climate Policy <span class="tracking-urgency urgency-high">Decision Point</span></div>
+      <div class="tracking-headline">UK Carbon Budget 7 Consultation Opens: Transport Sector Input Window Closes April</div>
+      <div class="tracking-body">The consultation window for Carbon Budget 7 opens this month. Transport authorities have until April to submit evidence. EPN is preparing a coordinated response framework for public sector clients.</div>
+      <div class="tracking-meta"><span>🇬🇧 UK</span><span>Feb 18, 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTITUTIONS -->
+<section class="institutions-section">
+  <div class="section-header">
+    <div class="section-tag">Institutional Track Record</div>
+    <h2 class="section-title">Who we have worked with</h2>
+    <p class="section-sub">EPN's credibility is built on the institutions that have trusted our analysis to inform real decisions.</p>
+  </div>
+  <div class="institutions-row">
+    <div class="institution-item">
+      <div class="inst-abbr">DG MOVE</div>
+      <div class="inst-name">European Commission Directorate-General for Mobility</div>
+    </div>
+    <div class="institution-item">
+      <div class="inst-abbr">EIB</div>
+      <div class="inst-name">European Investment Bank</div>
+    </div>
+    <div class="institution-item">
+      <div class="inst-abbr">CIVITAS</div>
+      <div class="inst-name">EU Urban Mobility Network</div>
+    </div>
+    <div class="institution-item">
+      <div class="inst-abbr">MBTA</div>
+      <div class="inst-name">Massachusetts Bay Transportation Authority</div>
+    </div>
+    <div class="institution-item">
+      <div class="inst-abbr">IEEP</div>
+      <div class="inst-name">Institute for European Environmental Policy</div>
+    </div>
+    <div class="institution-item">
+      <div class="inst-abbr">UITP</div>
+      <div class="inst-name">International Association of Public Transport</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIEFING CTA -->
+<section class="briefing-cta" id="briefing">
+  <div>
+    <div class="cta-title">Get intelligence<br>straight to your inbox.</div>
+    <p class="cta-sub">Personalised briefings, policy previews, and forward-looking analysis — delivered directly to senior policymakers across Europe and the UK. No broadcast newsletters. Curated for your portfolio.</p>
+  </div>
+  <div class="cta-form">
+    <input type="text" placeholder="Your name">
+    <input type="email" placeholder="Institutional email address">
+    <select>
+      <option value="" disabled selected>Your topic focus</option>
+      <option>Sustainable Transport</option>
+      <option>Smart Cities</option>
+      <option>Climate Change</option>
+      <option>Circular Economy</option>
+    </select>
+    <select>
+      <option value="" disabled selected>Your region</option>
+      <option>European Union</option>
+      <option>United Kingdom</option>
+      <option>Both EU & UK</option>
+    </select>
+    <button>Request Briefing Access</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2026 EPN Consulting. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function selectTopic(card, topicId) {
+    // Remove active from all cards
+    document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // Hide all panels
+    document.querySelectorAll('.topic-panel').forEach(p => p.classList.remove('visible'));
+
+    // Show selected panel
+    const panel = document.getElementById('panel-' + topicId);
+    if (panel) panel.classList.add('visible');
+  }
+
+  function selectRegion(tab, topicId, regionId) {
+    // Find sibling tabs in the same panel
+    const panel = document.getElementById('panel-' + topicId);
+    panel.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // Hide all region content in this panel
+    panel.querySelectorAll('.region-content').forEach(c => c.classList.remove('visible'));
+
+    // Show selected
+    const content = document.getElementById(topicId + '-' + regionId);
+    if (content) content.classList.add('visible');
+  }
+</script>
+</body>
+</html>
